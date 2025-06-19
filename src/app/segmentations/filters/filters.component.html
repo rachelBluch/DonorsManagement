@@ -1,0 +1,13 @@
+<div class="chips-container">
+  <ng-container *ngFor="let f of filters">
+    <mat-chip *ngFor="let c of f.columnData" (removed)="remove(f,c)">
+      <!-- {{f.columnName}}: {{c.data}} -->
+      <span *ngIf="f.columnName != 'עיר'"> {{f.columnName}}:{{c.data}}</span>
+      <span *ngIf="f.columnName == 'עיר'"> {{f.columnName}}:{{getCities(c.data)?.value}}</span>
+
+      <button matChipRemove [attr.aria-label]="'remove ' + c.data">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+  </ng-container>
+</div>

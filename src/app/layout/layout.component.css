@@ -1,0 +1,47 @@
+body{
+    height: 100%;
+}
+.header {
+    background-color: rgb(222, 219, 219);
+    height: 6vh;
+}
+
+.footer{
+    background-color: rgb(222, 219, 219);
+    font-size:20px ;
+    text-align: center;
+    height: 6vh;
+}
+
+.outlet{
+    height:88vh;
+    overflow-x: auto;
+}
+.text {
+    color: black;
+    font-size: 30px;
+    font-family: fantasy;
+    text-decoration: none;
+}
+
+.donors {
+    margin-right: 40px;
+}
+
+.active {
+    font-weight: bold;
+}
+.line{
+    height: 0.2vh;
+    background-color: rgb(119, 118, 118);
+}
+.footerText{
+    margin-top: 1%;
+}
+.nav{
+    height: 5.8vh;
+}
+.nav[_ngcontent-ng-c1206249394] {
+    /* margin-top:10%; */
+    margin-bottom: -8%;
+}

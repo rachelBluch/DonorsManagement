@@ -1,0 +1,9 @@
+.all{
+    direction: rtl;
+}
+.backgroundLogin{
+    background: url(src\assets\background2.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}

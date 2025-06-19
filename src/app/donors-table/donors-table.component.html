@@ -1,0 +1,58 @@
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay;let i = index">
+    <th mat-header-cell *matHeaderCellDef class="title"> {{namesToDisplay[i]}} </th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngIf="column!='edit' && column!='delete'&& column != 'donorCity'">{{element[column]}} </div>
+      <div *ngIf="column=='donorCity'"> {{getCities(element[column])?.value}} </div>
+
+
+      <!-- <mat-icon>delete</mat-icon> -->
+
+      <div *ngIf="column=='edit'">
+        <div class="example-button-container">
+          <div (click)="openDialog('400ms', '700ms',element );$event.stopPropagation()">
+            <mat-icon>edit</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="column=='delete'">
+        <div class="example-button-container">
+          <div (click)="delete(element.donorId,element.donorName);$event.stopPropagation()" >
+            <mat-icon>delete</mat-icon>
+          </div>
+        </div>
+      </div>
+    </td>
+
+  </ng-container>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row"
+        (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div class="inner example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div >
+          <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+            <mat-tab label="תרומות"><app-donations (refreshData)="refreshDataOnDeletedDonation($event)" [donorId]="element.donorId" /></mat-tab>
+            <mat-tab label="מתנות"><app-gifts (refreshData)="refreshDataOnDeletedDonation($event)" [donorId]="element.donorId" /></mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

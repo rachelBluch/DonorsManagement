@@ -1,0 +1,8 @@
+.mat-chip button {
+  display: flex; /* Enable flexbox for the button */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Ensure button takes the full height */
+  width: 100%; /* Ensure button takes the full width */
+  text-align: center; /* Center text alignment */
+}

@@ -1,0 +1,52 @@
+<div class="title">{{this.data?.edit?'עריכת תורם':'הוספת תורם'}}</div>
+<mat-divider></mat-divider>
+<form [formGroup]="donorForm" class="donorForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>שם תורם</mat-label>
+    <input matInput formControlName="donorName">
+  </mat-form-field>
+
+  <!-- <mat-form-field class="example-full-width">
+    <mat-label>עיר</mat-label>
+    <input matInput formControlName="donorCity">
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+        <mat-label>עיר</mat-label>
+        <mat-select formControlName="donorCity" dir="rtl">
+            <mat-option *ngFor="let c of citiesList" [value]="c.key">
+                {{c.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>כתובת</mat-label>
+    <textarea matInput formControlName="donorAddress"></textarea>
+  </mat-form-field> 
+
+  <mat-form-field class="example-full-width">
+    <mat-label>בית כנסת</mat-label>
+    <input matInput formControlName="shul">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>טלפון</mat-label>
+    <input matInput formControlName="phone">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>דוא"ל</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>הערות</mat-label>
+    <input matInput formControlName="comments">
+  </mat-form-field>
+
+  <button class="cancel" style="background-color: rgb(215, 212, 212); color: white;" mat-raised-button color="gray" (click)="close()">ביטול</button>
+  <button style="background-color:  rgb(157, 142, 114); color: white;" *ngIf="!this.data?.edit" class="save" mat-raised-button color="red" (click)="save(true)">המשך להוספת תרומה</button>
+  <button class="save" style="background-color:  rgb(157, 142, 114); color: white;" mat-raised-button color="red" (click)="save()">שמור</button>
+
+</form>

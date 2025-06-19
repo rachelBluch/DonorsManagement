@@ -1,0 +1,42 @@
+<div class="title">{{this.data?.edit?'עריכת מתנה':'הוספת מתנה'}}</div>
+<mat-divider></mat-divider>
+
+<form [formGroup]="giftForm" class="giftForm">
+
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>שם מתנה</mat-label>
+        <input matInput formControlName="giftName">
+      </mat-form-field> -->
+    <mat-form-field class="example-full-width">
+        <mat-label>שם מתנה</mat-label>
+        <mat-select formControlName="giftName" dir="rtl">
+            <mat-option *ngFor="let c of giftsNameList" [value]="c.key">
+                {{c.value}}
+            </mat-option>
+            <mat-option>
+                <input matInput [(ngModel)]="newGift" placeholder="אחר"(keyup)="addCity()">
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!--  -->
+    
+
+    <mat-form-field class="example-full-width">
+        <mat-label class="date1">תאריך</mat-label>
+        <input matInput class="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
+            formControlName="donationDate" [value]="giftForm.get('receivedDate')?.value">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>הוספה</mat-label>
+        <input matInput formControlName="addGiftName">
+    </mat-form-field>
+
+    <button class="cancel" style="background-color: rgb(215, 212, 212); color: white;" mat-raised-button color="gray"
+        (click)="close()">ביטול</button>
+
+    <button class="save" style="background-color: rgb(157, 142, 114); color: white;" mat-raised-button color="red"
+        (click)="save()">שמור</button>
+
+</form>

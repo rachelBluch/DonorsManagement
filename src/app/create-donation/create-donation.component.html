@@ -1,0 +1,59 @@
+<form [formGroup]="donationForm" (ngSubmit)="save()" class="donationForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>סכום תרומה</mat-label>
+        <input matInput type="number" formControlName="donationAmount">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>מטבע</mat-label>
+        <mat-select formControlName="donationCurrency" dir="rtl">
+            <mat-option *ngFor="let c of currenciesList" [value]="c.key">
+                {{c.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label class="date1">תאריך</mat-label>
+        <input matInput class="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
+            formControlName="donationDate" [value]="donationForm.get('donationDate')?.value">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>אופן התשלום</mat-label>
+        <mat-select formControlName="donationMethodId">
+            <mat-option *ngFor="let c of donationMethodsList" [value]="c.donationMethodId">
+                {{c.donationMethodName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>תשלומים</mat-label>
+        <input matInput type="number" formControlName="payments">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>שם לתפילה</mat-label>
+        <input matInput formControlName="prayerName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>הערות</mat-label>
+        <input matInput formControlName="comments">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>תורם</mat-label>
+        <mat-select formControlName="donorId">
+            <mat-option *ngFor="let c of donorsList" [value]="c.key">
+                {{c.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button type="submit" [disabled]="!donationForm.valid" class="save" mat-raised-button >שמור</button>
+
+</form>

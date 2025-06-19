@@ -1,0 +1,27 @@
+<body>
+    <div *ngIf="showHeaderAndFooter()" class="header">
+        <header>
+            <div class="headerText">
+                <nav class="nav">
+                    <a routerLink="/desktop" class="text donors" routerLinkActive="active">תורמים </a>
+                    <span class="text"> | </span>
+                    <a routerLink="/createDonation" class="text createDonation" routerLinkActive="active"> יצירת תרומה
+                        חדשה
+                    </a>
+                    <a> <mat-icon (click)="navigateLogin()">ballot</mat-icon></a>
+                </nav>
+               
+            </div>
+            <!-- <div class="line"></div> -->
+             <mat-divider></mat-divider>
+        </header>
+    </div>
+    <div class="outlet"><router-outlet></router-outlet></div>
+    <div *ngIf="showHeaderAndFooter()" class="footer">
+        <footer>
+            <!-- <div class="line"></div> -->
+            <mat-divider></mat-divider>
+            <div class="footerText"> copyright RACHEL 9.24©</div>
+        </footer>
+    </div>
+</body>

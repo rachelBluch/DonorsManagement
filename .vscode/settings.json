@@ -1,0 +1,5 @@
+{
+    "files.autoSave": "afterDelay",
+    "appService.defaultWebAppToDeploy": "/subscriptions/eaef8dfc-75c3-48af-9426-99bf1ed2925d/resourceGroups/DonorsManagementsResourceGroup/providers/Microsoft.Web/sites/DonorsManagementApp",
+    "appService.deploySubpath": "dist\\donors-management"
+}

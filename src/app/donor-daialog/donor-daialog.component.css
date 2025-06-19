@@ -1,0 +1,29 @@
+.donorForm {
+    margin: 10%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-mdc-form-field {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* .mat-mdc-raised-button:not(:disabled) {
+    color: white;
+    background-color: rgb(166, 213, 202) !important;
+} */
+.title{
+    direction: rtl;
+    text-align: right;
+    font-size: large;
+    color:  rgb(157, 142, 114);
+    /* margin: 10%; */
+    font-weight: bold;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    font-size: 140%;
+    margin-right: 10%;
+}

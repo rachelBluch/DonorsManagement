@@ -1,0 +1,93 @@
+table {
+    direction: rtl;
+    margin-top: 5%;
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    text-align: right;
+    height: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+.mdc-data-table__table {
+    min-width: 50%;
+}
+
+.example-element-detail[_ngcontent-ng-c358063449] {
+    background-color:rgb(195, 197, 197);
+}
+
+
+.mat-mdc-table thead,
+.mat-mdc-header-cell {
+    background:rgb(195, 197, 197) !important;
+    font-weight: bold;
+font-size: large;
+}
+.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell{
+    text-align: right;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color:black;
+    --mat-tab-header-disabled-ripple-color: rgb(80, 83, 82);
+    --mat-tab-header-pagination-icon-color: rgb(80, 83, 82);
+    --mat-tab-header-inactive-label-text-color: rgb(157, 142, 114) ;
+    --mat-tab-header-active-label-text-color: rgb(157, 142, 114) ;
+    --mat-tab-header-active-ripple-color:  rgb(157, 142, 114) ;
+    --mat-tab-header-inactive-ripple-color: rgb(157, 142, 114) ;
+    --mat-tab-header-inactive-focus-label-text-color: rgb(80, 83, 82);
+    --mat-tab-header-inactive-hover-label-text-color:  rgb(80, 83, 82);
+    --mat-tab-header-active-focus-label-text-color: rgb(80, 83, 82);
+    --mat-tab-header-active-hover-label-text-color:  rgb(80, 83, 82);
+    --mat-tab-header-active-focus-indicator-color:black;
+    --mat-tab-header-active-hover-indicator-color:black;
+}
+
+.inner{
+    background-color: rgb(246, 246, 246);
+}
+

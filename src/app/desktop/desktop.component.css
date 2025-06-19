@@ -1,0 +1,47 @@
+.addDonor {
+
+    margin-top: 11%;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+    color: white;
+    background-color: rgb(157, 142, 114) !important;
+}
+
+.search {
+    direction: rtl;
+    /* width: 43%; */
+    height: 9vh;
+    margin-left: 1%;
+    /* margin-right: 2%; */
+}
+
+.searchAndAdd {
+    width: 85%;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.table {
+    margin-top: -5%;
+}
+
+.filterIcon {
+    margin-top: 20%;
+    margin-right: 1%;
+    width: 30%;
+    height: 50%;
+}
+
+.divFilters {
+    width: 85%;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+    /* margin-top: 1%; */
+}
+.segmentations{
+    margin-bottom: 1%;
+}

@@ -1,0 +1,7 @@
+<div class="selectFilter mat-elevation-z16">
+    <mat-checkbox class="filter-checkbox" (click)="$event.stopPropagation();" color="primary"
+        *ngFor="let f of dataFilter?.columnData" [(ngModel)]="f.check" #checkbox>
+        <span *ngIf="dataFilter.column != 'donorCity'"> {{f.data}} ({{f.count}})</span>
+        <span *ngIf="dataFilter.column == 'donorCity'"> {{getCities(f.data)?.value}} ({{f.count}})</span>
+    </mat-checkbox>
+</div>

@@ -1,0 +1,27 @@
+.mat-mdc-table thead,
+.mat-mdc-header-cell {
+    background: rgb(195, 197, 197) !important;
+    font-weight: bold;
+}
+
+.mat-mdc-table tbody,
+.mat-mdc-table tfoot,
+.mat-mdc-table thead,
+.mat-mdc-cell,
+.mat-mdc-footer-cell,
+.mat-mdc-header-row,
+.mat-mdc-row,
+.mat-mdc-footer-row,
+.mat-mdc-table .mat-mdc-header-cell {
+    text-align: right;
+}
+
+.mat-mdc-table thead,
+.mat-mdc-header-row,
+.mat-mdc-header-cell {
+    height: 4vh;
+}
+
+.table{
+    margin-bottom: 3%;
+}

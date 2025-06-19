@@ -1,0 +1,47 @@
+.all {
+    background: rgb(243, 243, 243);
+    border-bottom: 2px solid #E4E8EC;
+    border-top: 2px solid #E4E8EC;
+    width: 85%;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+}
+
+/* .content {
+    display: flex;
+    flex-direction: row;
+} */
+
+.segmentations {
+    margin: 35px;
+}
+
+
+.filters{
+    display: flex;
+    flex-direction: row;
+}
+.filters1 {
+    display: flex;
+    flex-direction: row;
+   
+}
+.filters2 {
+   align-self: flex-end;
+}
+
+.h3{
+    margin-top: 30px;
+    color: olive;
+}
+.filter-button{
+    margin: 4px;
+    background-color:  rgb(157, 142, 114);
+    color: white;
+    /* margin-top: 50%; */
+}
+.primary-title{
+    color:  rgb(157, 142, 114);
+    font-size: large;
+    font-weight: bold;
+}

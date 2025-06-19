@@ -1,0 +1,40 @@
+.mat-mdc-table thead,
+.mat-mdc-header-cell {
+    background:  rgb(195, 197, 197) !important;
+    font-weight: bold;
+    /* font-size: large; */
+}
+
+.mat-mdc-table tbody,
+.mat-mdc-table tfoot,
+.mat-mdc-table thead,
+.mat-mdc-cell,
+.mat-mdc-footer-cell,
+.mat-mdc-header-row,
+.mat-mdc-row,
+.mat-mdc-footer-row,
+.mat-mdc-table .mat-mdc-header-cell {
+    text-align: right;
+}
+
+/* .mat-mdc-header-row[_ngcontent-ng-c808287718]{
+    height: 4vh;
+} */
+/* td {
+    background-color: rgb(241, 240, 240);
+} */
+
+.mat-mdc-table thead,
+.mat-mdc-header-row,
+.mat-mdc-header-cell {
+    height: 4vh;
+}
+
+.table{
+    /* width: 70%; */
+    margin-bottom: 3%;
+}
+.all{
+    display: flex;
+    flex-direction: row;
+}

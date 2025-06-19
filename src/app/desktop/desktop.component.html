@@ -1,0 +1,31 @@
+<div class="searchAndAdd">
+
+    <mat-form-field class="search">
+        <!-- <mat-form-field appearance="standard"> -->
+        <mat-label>חיפוש</mat-label>
+        <input matInput (keyup)="applySearch($event)" [(ngModel)]="donorsManegementService.filter">
+        <mat-icon matSuffix class="icon">search</mat-icon>
+    </mat-form-field>
+    <!-- <input type="text" [(ngModel)]="donorsManegementService.filter" placeholder="Search...">
+<button (click)="applySearch()">Search</button> -->
+
+    <div>
+        <button class="addDonor" mat-raised-button (click)="openDialog('400ms', '700ms')">הוספת תורם</button>
+    </div>
+    <div>
+        <button class="filterIcon" mat-button (click)="segmentations()">
+            <mat-icon class="filter_alt_icon" style="font-size: 155%;">{{icon}}</mat-icon>
+        </button>
+    </div>
+
+</div>
+<div class="segmentations">
+<app-segmentations [ngStyle]="{'display':icon=='filter_alt_off_icon'?'block':'none'}"
+    (filterData)="applyFilter()"></app-segmentations>
+</div>
+
+<div class="divFilters">
+    <app-filters class="filters" [filters]="this.filterService.lastDataFilter"
+        (filterRemoved)="removeFilter($event)"></app-filters>
+</div>
+<div class="table"><app-donors-table [donorId]="id" /></div>

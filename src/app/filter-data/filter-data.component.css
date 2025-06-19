@@ -1,0 +1,49 @@
+
+.mat-elevation-z16 {
+    box-shadow: none;
+}
+.search {
+    vertical-align: middle;
+    line-height: 0px;
+}
+
+.selectFilter {
+   
+    background: rgb(243, 243, 243);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    z-index: 5;
+    text-align: right;
+}
+
+
+
+.search-icon {
+    font-size: 13px !important;
+    height: inherit;
+    width: inherit;
+    line-height: 0px;
+}
+
+.filter-checkbox {
+    display: flex;
+    justify-content: right
+}
+
+span {
+    margin: 2px;
+}
+
+.filter-button {
+
+    display: block;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}

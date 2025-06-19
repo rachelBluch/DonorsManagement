@@ -1,0 +1,18 @@
+<div class="all">
+    <div class="content">
+        <div class="filters">
+            <div class="filters1">
+                <div *ngFor="let s of displayFilters">
+                    <div class="segmentations">
+                        <h3 class="primary-title">{{s?.title}}</h3>
+                        <app-filter-data [columnName]="s?.title!"></app-filter-data>
+                    </div>
+                </div>
+            </div>
+            <div class="filters2">
+                <button mat-raised-button class="filter-button" (click)="applyFilter()">סנן</button>
+                <!-- <button mat-raised-button color="primary" class="filter-button" (click)="getStatistics()">הצג גרפים</button> -->
+            </div>
+        </div>
+    </div>
+</div>

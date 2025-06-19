@@ -1,0 +1,19 @@
+<div class="login">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="loginInput">
+            <mat-form-field class="userName">
+                <mat-label>שם משתמש</mat-label>
+                <input matInput formControlName="userName">
+            </mat-form-field>
+            <mat-form-field class="password">
+                <mat-label>סיסמא</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <button class="save" mat-raised-button type="submit">התחברות</button>
+    </form>
+</div>

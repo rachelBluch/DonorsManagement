@@ -1,0 +1,42 @@
+.login{
+    /* margin: 20%; */
+    /* box-shadow: inset; */
+    margin-right: 37%;
+    margin-left: 37%;
+    margin-top: 13%;
+    width: 26%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: var(--mdc-protected-button-container-elevation, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12));
+    border-radius: 10%;
+}
+mat-form-field{
+    width: 80%;
+    
+}
+.loginInput{
+    margin-top: 10%;
+}
+.mat-mdc-raised-button:not(:disabled) {
+    color: white;
+    background-color: rgb(157, 142, 114) !important;
+    margin-right: 35%;
+    margin-left: 35%;
+    width: 30%;
+    font-size: 130%;
+    margin-top: 6%;
+}
+/* mat-form-field[_ngcontent-ng-c2520097758] {
+    margin-right: 20%;
+    margin-top: 6%
+
+} */
+.userName{
+    margin-top: 15%;
+    margin-right: 10%;
+}
+.password{
+    margin-right: 10%;
+    margin-top: 3%;
+    
+}
