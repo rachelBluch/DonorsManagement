@@ -13,20 +13,19 @@ export class GiftDialogComponent {
 
   minDate!: Date;
   maxDate!: Date
-  giftsNameList!:KeyValue<number,string>[] ;
-
-  newGift!:string;
-  newGiftKeyValue!:KeyValue<number,string>;
+  giftsNameList!: KeyValue<number, string>[];
+  addGift: boolean = false
+  newGiftKeyValue!: KeyValue<number, string>;
   giftForm: FormGroup = this.fb.group({
-    giftId:[''],
+    giftId: [''],
     giftName: ['', Validators.required],
     receivedDate: [new Date()],
   });
- 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<GiftDialogComponent>, private fb: FormBuilder, private _service: DonorsManegementService){}
 
-  ngOnInit(){
-    this._service.getGiftNames().subscribe(x=> this.giftsNameList = x)
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<GiftDialogComponent>, private fb: FormBuilder, private _service: DonorsManegementService) { }
+
+  ngOnInit() {
+    this._service.getGiftNames().subscribe(x => this.giftsNameList = x)
 
     this.minDate = new Date()
     this.minDate.setFullYear(this.minDate.getFullYear() - 1)
@@ -61,19 +60,18 @@ export class GiftDialogComponent {
 
     else {
       if (this.giftForm.valid) {
-        this._service.addGift(this.giftForm.value,this.data?.donorId).subscribe(x => {
+        this._service.addGift(this.giftForm.value, this.data?.donorId).subscribe(x => {
           if (x) {
             this.dialogRef.close()
           }
         });
       }
     }
-  } addCity() {
-    if (this.newGift) {
-      const maxKey = Math.max(...this.giftsNameList.map(x => x.key));
-        this.newGiftKeyValue = { key: maxKey, value: this.newGift };
-        this.giftsNameList.push(this.newGiftKeyValue);
-        this.newGift = ''; // Reset input after adding
-    }
- 
-}}
+  }
+  saveAddGiftFun(gift: any) {
+    this.addGift = false
+    const maxKey = Math.max(...this.giftsNameList.map(x => x.key));
+    this.newGiftKeyValue = { key: maxKey, value: gift };
+    this._service.getGiftNames().subscribe(x => this.giftsNameList = x)
+  }
+}

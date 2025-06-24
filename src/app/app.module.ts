@@ -38,7 +38,8 @@ import { CountDonation, DateFormatPipe } from './pipes';
 import { GiftDialogComponent } from './gift-dialog/gift-dialog.component';
 import { BaseUrlInterceptor } from './base-url.interceptor';
 import { environment } from 'src/environment/environment';
-import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddItemToComboDataComponent } from './add-item-to-combo-data/add-item-to-combo-data.component'; // Import MatSnackBarModule
 
 
 
@@ -59,7 +60,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSn
     FiltersComponent,
     DateFormatPipe,
     CountDonation,
-    GiftDialogComponent
+    GiftDialogComponent,
+    AddItemToComboDataComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSn
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [
 

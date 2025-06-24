@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DonorDaialogComponent } from '../donor-daialog/donor-daialog.component';
 import { FilterDataService } from '../filter-data/filter-data.service';
 import { DataFilter } from '../filter-data/filter-data.models';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { KeyValue } from '@angular/common';
 
 
@@ -30,6 +30,7 @@ export class DonorsTableComponent {
   city!: KeyValue<number, string>
 
   dataSource: Donor[] = [];
+  selectedRowIndex: number | null = null; // משתנה לשמירת השורה שנבחרה
 
   constructor(private _service: DonorsManegementService, public dialog: MatDialog, private filterService: FilterDataService, private _snackBar: MatSnackBar) { }
 
@@ -75,8 +76,8 @@ export class DonorsTableComponent {
   expandedElement!: any;
 
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, element: Donor): void {
-
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, element: Donor, index: number): void {
+    this.selectedRowIndex = index; // שמירת האינדקס של השורה שנבחרה
     const dialogRef = this.dialog.open(DonorDaialogComponent, {
       width: '26%',
       height: '90%',
@@ -86,12 +87,32 @@ export class DonorsTableComponent {
       data: { edit: true, element: element }
     });
 
-    dialogRef.afterClosed().subscribe(x => {
-      this.getData()
+    // dialogRef.afterClosed().subscribe(x => {
+    //   this.getData()
+    // });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // עדכון הנתונים בטבלה
+        this.getData()
+        // החזרת המיקוד לשורה שנבחרה
+        if (this.selectedRowIndex !== null) {
+          // כאן תוכל להחזיר את המיקוד לשורה שנבחרה
+          // לדוגמה, אם אתה משתמש ב-Material Table:
+          const table = document.querySelector('table');
+          if (table) {
+            const row = table.rows[this.selectedRowIndex + 1]; // +1 אם יש כותרת
+            if (row) {
+              row.scrollIntoView({ behavior: 'smooth' });
+              // או להדגיש את השורה
+              row.classList.add('highlight'); // תוסיף סגנון CSS להדגשה
+            }
+          }
+        }
+      }
     });
   }
 
-  delete(donorId: number,donorName: string) {
+  delete(donorId: number, donorName: string) {
     this._snackBar.open(`?האם אתה בטוח שברצונך למחוק את התורם: ${donorName}`, 'אישור', {
       duration: 5000,
     }).onAction().subscribe(() => {
@@ -101,17 +122,17 @@ export class DonorsTableComponent {
         }
       });
     })
-}
+  }
 
-refreshDataOnDeletedDonation(event: string){
-  if (event == 'refresh')
-    this.getData()
-}
-getCities(city: number) {
-  this.citiesList.map(y => {
-    if (y.key == city)
-      this.city = y
-  })
-  return this.city ? this.city : null
-}
+  refreshDataOnDeletedDonation(event: string) {
+    if (event == 'refresh')
+      this.getData()
+  }
+  getCities(city: number) {
+    this.citiesList.map(y => {
+      if (y.key == city)
+        this.city = y
+    })
+    return this.city ? this.city : null
+  }
 }

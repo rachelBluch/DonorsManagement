@@ -19,6 +19,7 @@ export class GiftsComponent {
   giftName!: KeyValue<number, string>;
 
   dataSource: Gift[] = [];
+  selectedRowIndex: number | null = null; // משתנה לשמירת השורה שנבחרה
 
   constructor(private _service: DonorsManegementService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
@@ -37,7 +38,7 @@ export class GiftsComponent {
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement!: Gift;
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, element?: Gift, edit?: boolean): void {
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string,index?:number, element?: Gift, edit?: boolean): void {
 
     const dialogRef = this.dialog.open(GiftDialogComponent, {
       width: '26%',
@@ -47,10 +48,30 @@ export class GiftsComponent {
       disableClose: true,
       data: { edit: edit, element: element ? element : null, donorId: this.donorId }
     });
-
-    dialogRef.afterClosed().subscribe(x => {
+dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // עדכון הנתונים בטבלה
       this.refreshData.emit('refresh');
+
+        // החזרת המיקוד לשורה שנבחרה
+        if (this.selectedRowIndex !== null) {
+          // כאן תוכל להחזיר את המיקוד לשורה שנבחרה
+          // לדוגמה, אם אתה משתמש ב-Material Table:
+          const table = document.querySelector('table');
+          if (table) {
+            const row = table.rows[this.selectedRowIndex + 1]; // +1 אם יש כותרת
+            if (row) {
+              row.scrollIntoView({ behavior: 'smooth' });
+              // או להדגיש את השורה
+              row.classList.add('highlight'); // תוסיף סגנון CSS להדגשה
+            }
+          }
+        }
+      }
     });
+    // dialogRef.afterClosed().subscribe(x => {
+    //   this.refreshData.emit('refresh');
+    // });
   }
 
   deleted(giftId: number) {

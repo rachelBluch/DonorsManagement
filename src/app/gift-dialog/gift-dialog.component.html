@@ -13,13 +13,13 @@
             <mat-option *ngFor="let c of giftsNameList" [value]="c.key">
                 {{c.value}}
             </mat-option>
-            <mat-option>
-                <input matInput [(ngModel)]="newGift" placeholder="אחר"(keyup)="addCity()">
-            </mat-option>
+            <!-- <mat-option>
+                <input matInput [(ngModel)]="newGift" placeholder="אחר">
+                <mat-icon (click)="addCity(newGift)">adjust</mat-icon>
+            </mat-option> -->
         </mat-select>
     </mat-form-field>
-    <!--  -->
-    
+
 
     <mat-form-field class="example-full-width">
         <mat-label class="date1">תאריך</mat-label>
@@ -28,10 +28,16 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <button (click)="addGift=true">הוספת מתנה</button>
+    <div *ngIf="addGift"><app-add-item-to-combo-data [giftOrCity]="'gift'" (saveAddGift)="saveAddGiftFun($event)"></app-add-item-to-combo-data></div>
+    <!-- <mat-form-field class="example-full-width">
         <mat-label>הוספה</mat-label>
-        <input matInput formControlName="addGiftName">
-    </mat-form-field>
+        <input matInput [(ngModel)]="newGift" placeholder="אחר">
+        <button mat-icon-button matSuffix (click)="addCity(newGift)">
+            <mat-icon>adjust</mat-icon>
+        </button>
+    </mat-form-field> -->
+
 
     <button class="cancel" style="background-color: rgb(215, 212, 212); color: white;" mat-raised-button color="gray"
         (click)="close()">ביטול</button>
