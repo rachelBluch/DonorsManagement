@@ -19,6 +19,11 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
+    <!-- <button (click)="addCity=true">הוספת עיר</button> -->
+          <button matButton class="addCity" style="background-color:  rgb(215, 212, 212); color: black;" mat-raised-button
+            color="red" (click)="addCity=true">הוספת עיר</button>
+    <div *ngIf="addCity"><app-add-item-to-combo-data [giftOrCity]="'city'" (saveAddCity)="saveAddCityFun($event)"></app-add-item-to-combo-data></div>
+    
 
   <mat-form-field class="example-full-width">
     <mat-label>כתובת</mat-label>
@@ -46,7 +51,7 @@
   </mat-form-field>
 
   <button class="cancel" style="background-color: rgb(215, 212, 212); color: white;" mat-raised-button color="gray" (click)="close()">ביטול</button>
-  <button style="background-color:  rgb(157, 142, 114); color: white;" *ngIf="!this.data?.edit" class="save" mat-raised-button color="red" (click)="save(true)">המשך להוספת תרומה</button>
   <button class="save" style="background-color:  rgb(157, 142, 114); color: white;" mat-raised-button color="red" (click)="save()">שמור</button>
+  <button style="background-color:  rgb(157, 142, 114); color: white;width: 48%;" *ngIf="!this.data?.edit"  mat-raised-button color="red" (click)="save(true)">המשך להוספת תרומה</button>
 
 </form>

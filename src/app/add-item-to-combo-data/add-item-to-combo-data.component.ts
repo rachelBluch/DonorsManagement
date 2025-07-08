@@ -8,20 +8,36 @@ import { DonorsManegementService } from '../donors-manegement.service';
 })
 export class AddItemToComboDataComponent {
   @Output() saveAddGift = new EventEmitter<string>();
+  @Output() saveAddCity = new EventEmitter<string>();
+
   @Input() giftOrCity: string = '';
-  name: string = ""
-  constructor(private _service: DonorsManegementService) { }
+  giftOrCityHeb: string = ""
+  name:string=""
+  ngOnInit(){
+       if (this.giftOrCity == "city")
+      this.giftOrCityHeb = "עיר"
+    else if (this.giftOrCity == "gift")
+      this.giftOrCityHeb = "מתנה"
+  }
+  constructor(private _service: DonorsManegementService) {}
   save() {
-    debugger
-    if (this.giftOrCity = "gift")
+    if (this.giftOrCity == "gift"){
       this._service.addGiftNames(this.name).subscribe(x => {
         if (x)
           this.saveAddGift.emit(this.name)
-      })
-    else
+      })}
+    else{
       this._service.addCity(this.name).subscribe(x => {
         if (x)
-          this.saveAddGift.emit(this.name)
-      })
+          this.saveAddCity.emit(this.name)
+      })}
+  }
+  close(){
+ if (this.giftOrCity == "gift"){
+          this.saveAddGift.emit("close")
+      }
+    else{
+          this.saveAddCity.emit("close")
+      }
   }
 }

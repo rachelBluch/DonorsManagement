@@ -51,17 +51,18 @@ export class DonorsManegementService {
     return this._http.put<Gift>(this.url + 'EditGift', gift)
   }
   addGiftNames(giftName: string): Observable<boolean> {
-    var obj = {giftName :giftName}
+    var obj = { giftName: giftName }
     return this._http.post<boolean>(this.url + 'AddGiftNames', obj)
 
     // const jsonBody = JSON.stringify({ giftName }); // ממיר את המחרוזת לאובייקט JSON
     // return this._http.post<boolean>(this.url + '', jsonBody, {
     //     headers: { 'Content-Type': 'application/json' } // ציין את סוג התוכן
     // });
-}
+  }
 
   addCity(cityName: string): Observable<boolean> {
-    return this._http.post<boolean>(this.url + 'AddCity', cityName)
+    var obj = { cityName: cityName }
+    return this._http.post<boolean>(this.url + 'AddCity', obj)
   }
   addDonor(donor: Donor): Observable<Donor> {
     return this._http.post<Donor>(this.url + 'AddDonor', donor)

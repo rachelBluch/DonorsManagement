@@ -20,16 +20,20 @@
         </mat-select>
     </mat-form-field>
 
+        <button matButton class="addGift" style="background-color:  rgb(215, 212, 212); color: black;" mat-raised-button
+            color="red" (click)="addGift=true">הוספת מתנה</button>
+    
+    <div *ngIf="addGift"><app-add-item-to-combo-data [giftOrCity]="'gift'"
+            (saveAddGift)="saveAddGiftFun($event)"></app-add-item-to-combo-data></div>
 
     <mat-form-field class="example-full-width">
         <mat-label class="date1">תאריך</mat-label>
         <input matInput class="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
-            formControlName="donationDate" [value]="giftForm.get('receivedDate')?.value">
+            formControlName="receivedDate" [value]="giftForm.get('receivedDate')?.value">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <button (click)="addGift=true">הוספת מתנה</button>
-    <div *ngIf="addGift"><app-add-item-to-combo-data [giftOrCity]="'gift'" (saveAddGift)="saveAddGiftFun($event)"></app-add-item-to-combo-data></div>
+
     <!-- <mat-form-field class="example-full-width">
         <mat-label>הוספה</mat-label>
         <input matInput [(ngModel)]="newGift" placeholder="אחר">

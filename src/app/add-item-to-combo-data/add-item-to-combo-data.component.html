@@ -1,8 +1,13 @@
 <div class="all">
-<mat-form-field class="example-full-width">
-<mat-label>שם מתנה</mat-label>
-<input matInput [(ngModel)]="name" placeholder="הכנס שם ">
-</mat-form-field>
 
-<button (click)="save()">שמור</button>
+    <mat-form-field class="example-full-width">
+        <mat-label>שם {{giftOrCityHeb}}</mat-label>
+        <input matInput [(ngModel)]="name" placeholder="הכנס שם ">
+    </mat-form-field>
+
+    <button class="cancel" style="background-color: rgb(215, 212, 212); color: white;" mat-raised-button color="gray"
+        (click)="close()">ביטול</button>
+
+    <button class="save" style="background-color: rgb(157, 142, 114); color: white;" mat-raised-button color="red"
+        (click)="save()">שמור</button>
 </div>

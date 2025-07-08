@@ -1,5 +1,22 @@
 .all {
-    border: 2px solid black; /* משאיר גבול של 2 פיקסלים בצבע שחור */
-    padding: 10px; /* הוסף ריפוד פנימי אם רצוי */
-    margin: 10px; /* הוסף מרווח חיצוני אם רצוי */
+    width: 92%;
+    border: 2px solid black;
+    /* משאיר גבול של 2 פיקסלים בצבע שחור */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    /* הוסף ריפוד פנימי אם רצוי */
+    margin-bottom: 4%;
+}
+
+.save {
+    margin: 4%;
+}
+
+.cancle {
+    margin: 4%;
+}
+
+.example-full-width {
+    width: 100%;
+    margin-bottom: -7%;
 }

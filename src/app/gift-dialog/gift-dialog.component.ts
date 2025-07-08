@@ -70,8 +70,10 @@ export class GiftDialogComponent {
   }
   saveAddGiftFun(gift: any) {
     this.addGift = false
-    const maxKey = Math.max(...this.giftsNameList.map(x => x.key));
-    this.newGiftKeyValue = { key: maxKey, value: gift };
-    this._service.getGiftNames().subscribe(x => this.giftsNameList = x)
+    if (gift != "close") {
+      const maxKey = Math.max(...this.giftsNameList.map(x => x.key));
+      this.newGiftKeyValue = { key: maxKey, value: gift };
+      this._service.getGiftNames().subscribe(x => this.giftsNameList = x)
+    }
   }
 }

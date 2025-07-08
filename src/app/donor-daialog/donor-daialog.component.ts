@@ -11,6 +11,9 @@ import { KeyValue } from '@angular/common';
   styleUrls: ['./donor-daialog.component.css']
 })
 export class DonorDaialogComponent implements OnInit {
+  addCity: boolean = false
+  newCityKeyValue!: KeyValue<number, string>;
+
   citiesList!: KeyValue<number, string>[]
   donorForm: FormGroup = this.fb.group({
     donorName: ['', Validators.required],
@@ -76,5 +79,13 @@ export class DonorDaialogComponent implements OnInit {
   navigateToCreateDonation(element: number) {
     let data = { donorId: element };
     this.router.navigate(['/createDonation'], { state: data });
+  }
+  saveAddCityFun(city: any) {
+    this.addCity = false
+    if (city != "close") {
+      const maxKey = Math.max(...this.citiesList.map(x => x.key));
+      this.newCityKeyValue = { key: maxKey, value: city };
+      this._service.getCities().subscribe(x => this.citiesList = x)
+    }
   }
 }
