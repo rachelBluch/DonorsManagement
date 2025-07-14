@@ -91,7 +91,6 @@ export class DonorsTableComponent {
     //   this.getData()
     // });
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
         // עדכון הנתונים בטבלה
         this.getData()
         // החזרת המיקוד לשורה שנבחרה
@@ -108,7 +107,6 @@ export class DonorsTableComponent {
             }
           }
         }
-      }
     });
   }
 

@@ -49,25 +49,23 @@ export class GiftsComponent {
       data: { edit: edit, element: element ? element : null, donorId: this.donorId }
     });
 dialogRef.afterClosed().subscribe(result => {
-      if (result) {
         // עדכון הנתונים בטבלה
       this.refreshData.emit('refresh');
 
         // החזרת המיקוד לשורה שנבחרה
-        // if (this.selectedRowIndex !== null) {
-        //   // כאן תוכל להחזיר את המיקוד לשורה שנבחרה
-        //   // לדוגמה, אם אתה משתמש ב-Material Table:
-        //   const table = document.querySelector('table');
-        //   if (table) {
-        //     const row = table.rows[this.selectedRowIndex + 1]; // +1 אם יש כותרת
-        //     if (row) {
-        //       row.scrollIntoView({ behavior: 'smooth' });
-        //       // או להדגיש את השורה
-        //       // row.classList.add('highlight'); // תוסיף סגנון CSS להדגשה
-        //     }
-        //   }
-        // }
-      }
+        if (this.selectedRowIndex !== null) {
+          // כאן תוכל להחזיר את המיקוד לשורה שנבחרה
+          // לדוגמה, אם אתה משתמש ב-Material Table:
+          const table = document.querySelector('table');
+          if (table) {
+            const row = table.rows[this.selectedRowIndex + 1]; // +1 אם יש כותרת
+            if (row) {
+              row.scrollIntoView({ behavior: 'smooth' });
+              // או להדגיש את השורה
+              // row.classList.add('highlight'); // תוסיף סגנון CSS להדגשה
+            }
+          }
+        }
     });
     // dialogRef.afterClosed().subscribe(x => {
     //   this.refreshData.emit('refresh');

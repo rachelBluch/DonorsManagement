@@ -97,8 +97,5 @@ export class CreateDonationComponent {
         let data = { id: x.donationId , donorId:x.donorId };
         this.router.navigate(['/desktop'], { state: data });
       });
-
   }
- 
-
 }
